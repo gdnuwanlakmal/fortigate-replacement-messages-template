@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Login
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #05000a, #1a0026);
+        color: #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        flex-direction: column;
+      }
+      .login-container {
+        background: #0f0f0f;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        width: 100%;
+        max-width: 400px;
+        animation: fadeIn 1.2s ease-in-out;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .logo img {
+        width: 80px;
+        height: auto;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: #ff4d4d;
+      }
+      .subtext {
+        text-align: center;
+        font-size: 14px;
+        color: #cccccc;
+        margin-bottom: 15px;
+      }
+      .validation-msg {
+        background-color: #1a1a1a;
+        border-left: 4px solid #ff4d4d;
+        padding: 12px 16px;
+        margin-bottom: 20px;
+        color: #ffcccc;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+      .input-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+        color: #cccccc;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #2e2e2e;
+        border: 1px solid #444444;
+        border-radius: 5px;
+        color: #e0e0e0;
+      }
+      input:focus {
+        outline: none;
+        border-color: #ff4d4d;
+        box-shadow: 0 0 5px #ff4d4d;
+      }
+      .btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #ff4d4d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #ff6666;
+      }
+      .footer-msg {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 13px;
+        color: #cccccc;
+        max-width: 500px;
+        line-height: 1.6;
+      }
+      .footer-msg .highlight {
+        color: #4da6ff;
+        font-weight: bold;
+      }
+      .footer-msg .link {
+        color: #66ccff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .footer-msg .link:hover {
+        text-decoration: underline;
+        color: #99d6ff;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo">
+        <img src="https://i.ibb.co/cKHDzHZ6/7992089.png" alt="Logo" />
+      </div>
+      <h2>
+        Authentication Required
+      </h2>
+      <p class="subtext">
+        Please enter the required information to continue.
+      </p>
+      <div class="validation-msg" style="text-align: center;">
+        We need to validate your user login. 
+        <br>
+        Please enter your login credentials to continue.
+      </div>
+      <form action="%%AUTH_POST_URL%%" method="post">
+        <input type="hidden" name="%%REDIRID%%" value="%%PROTURI%%" />
+        <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%" />
+        <input type="hidden" name="%%METHODID%%" value="%%METHODVAL%%" />
+        <div class="input-group">
+          <label for="ft_un">
+            Username
+          </label>
+          <input name="%%USERNAMEID%%" id="ft_un" type="text" required />
+        </div>
+        <div class="input-group">
+          <label for="ft_pd">
+            Password
+          </label>
+          <input name="%%PASSWORDID%%" id="ft_pd" type="password" required />
+        </div>
+        <button class="btn" type="submit">
+          Continue
+        </button>
+      </form>
+    </div>
+    <!-- Instruction/Contact Footer Message -->
+    <div class="footer-msg">
+      For further issues or complaints, contact 
+      <span class="highlight">
+        Company
+      </span>
+      <br />
+      Email: 
+      <a href="mailto:support@domain.lk" class="link">
+        support@domain.lk
+      </a>
+      |
+      TP: 
+      <span class="highlight">
+        012xxxxxxx
+      </span>
+    </div>
+  </body>
+</html>
 
