@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-      Login
+      Authentication
     </title>
     <style>
       * {
@@ -13,32 +13,31 @@
         box-sizing: border-box;
       }
       body {
-        height: 100vh;
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(to right, #05000a, #1a0026);
-        color: #e0e0e0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #0a0f1f, #141a33);
+        color: #e0e6f0;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
         flex-direction: column;
+        padding: 20px;
       }
       .login-container {
-        background: #0f0f0f;
+        background: #12182b;
         padding: 40px 30px;
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
         width: 100%;
         max-width: 400px;
-        animation: fadeIn 1.2s ease-in-out;
+        animation: fadeIn 0.8s ease-in-out;
       }
+      /* FortiGate Logo */
       .logo {
-        text-align: center;
+        height: 120px;
         margin-bottom: 20px;
-      }
-      .logo img {
-        width: 80px;
-        height: auto;
+        background: url(%%IMAGE:block_logo%%) no-repeat center center;
+        background-size: contain;
       }
       h2 {
         text-align: center;
@@ -48,17 +47,18 @@
       .subtext {
         text-align: center;
         font-size: 14px;
-        color: #cccccc;
+        color: #aab4d6;
         margin-bottom: 15px;
       }
       .validation-msg {
-        background-color: #1a1a1a;
+        background-color: #161d35;
         border-left: 4px solid #ff4d4d;
         padding: 12px 16px;
         margin-bottom: 20px;
-        color: #ffcccc;
+        color: #cbd3e6;
         font-size: 14px;
-        border-radius: 5px;
+        border-radius: 6px;
+        text-align: center;
       }
       .input-group {
         margin-bottom: 15px;
@@ -67,21 +67,21 @@
         display: block;
         margin-bottom: 6px;
         font-size: 14px;
-        color: #cccccc;
+        color: #cbd3e6;
       }
       input[type="text"],
       input[type="password"] {
         width: 100%;
         padding: 10px;
-        background-color: #2e2e2e;
-        border: 1px solid #444444;
-        border-radius: 5px;
-        color: #e0e0e0;
+        background-color: #161d35;
+        border: 1px solid #2a3355;
+        border-radius: 6px;
+        color: #e0e6f0;
       }
       input:focus {
         outline: none;
-        border-color: #ff4d4d;
-        box-shadow: 0 0 5px #ff4d4d;
+        border-color: #6ea8ff;
+        box-shadow: 0 0 6px rgba(110,168,255,0.5);
       }
       .btn {
         width: 100%;
@@ -89,42 +89,45 @@
         background-color: #ff4d4d;
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 6px;
         font-weight: bold;
         cursor: pointer;
         margin-top: 10px;
-        transition: background-color 0.3s ease;
+        transition: 0.2s ease-in-out;
       }
       .btn:hover {
         background-color: #ff6666;
+        transform: translateY(-1px);
       }
       .footer-msg {
         margin-top: 30px;
         text-align: center;
         font-size: 13px;
-        color: #cccccc;
+        color: #aab4d6;
         max-width: 500px;
         line-height: 1.6;
       }
       .footer-msg .highlight {
-        color: #4da6ff;
+        color: #6ea8ff;
         font-weight: bold;
       }
       .footer-msg .link {
-        color: #66ccff;
+        color: #6ea8ff;
         text-decoration: none;
         font-weight: bold;
       }
       .footer-msg .link:hover {
         text-decoration: underline;
-        color: #99d6ff;
+        color: #9ec5ff;
       }
       @keyframes fadeIn {
         from {
           opacity: 0;
+          transform: translateY(8px);
         }
         to {
           opacity: 1;
+          transform: translateY(0);
         }
       }
     </style>
@@ -132,57 +135,54 @@
   <body>
     <div class="login-container">
       <div class="logo">
-        <img src="https://i.ibb.co/cKHDzHZ6/7992089.png" alt="Logo" />
       </div>
       <h2>
         Authentication Required
       </h2>
       <p class="subtext">
-        Please enter the required information to continue.
+        Please enter your credentials to continue.
       </p>
-      <div class="validation-msg" style="text-align: center;">
-        We need to validate your user login. 
+      <div class="validation-msg">
+        We need to validate your user login.
         <br>
-        Please enter your login credentials to continue.
+        Please enter your login credentials to proceed.
       </div>
       <form action="%%AUTH_POST_URL%%" method="post">
-        <input type="hidden" name="%%REDIRID%%" value="%%PROTURI%%" />
-        <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%" />
-        <input type="hidden" name="%%METHODID%%" value="%%METHODVAL%%" />
+        <input type="hidden" name="%%REDIRID%%" value="%%PROTURI%%">
+        <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%">
+        <input type="hidden" name="%%METHODID%%" value="%%METHODVAL%%">
         <div class="input-group">
           <label for="ft_un">
             Username
           </label>
-          <input name="%%USERNAMEID%%" id="ft_un" type="text" required />
+          <input name="%%USERNAMEID%%" id="ft_un" type="text" required>
         </div>
         <div class="input-group">
           <label for="ft_pd">
             Password
           </label>
-          <input name="%%PASSWORDID%%" id="ft_pd" type="password" required />
+          <input name="%%PASSWORDID%%" id="ft_pd" type="password" required>
         </div>
         <button class="btn" type="submit">
           Continue
         </button>
       </form>
     </div>
-    <!-- Instruction/Contact Footer Message -->
     <div class="footer-msg">
-      For further issues or complaints, contact 
+      For further issues or complaints, contact
       <span class="highlight">
-        Company
+        Data Center
       </span>
-      <br />
-      Email: 
-      <a href="mailto:support@domain.lk" class="link">
-        support@domain.lk
+      <br>
+      Email:
+      <a href="mailto:user@domain.lk" class="link">
+        user@domain.lk
       </a>
       |
-      TP: 
+      TP:
       <span class="highlight">
-        012xxxxxxx
+        xxx-xxxxxx46
       </span>
     </div>
   </body>
 </html>
-
