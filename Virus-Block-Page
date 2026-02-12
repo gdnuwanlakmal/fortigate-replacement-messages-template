@@ -1,112 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-      Access Blocked
+      Security Blocked
     </title>
     <style>
-      /* Basic reset */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       body {
-        height: 100vh;
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(to right, #05000a, #1a0026);
-        color: #e0e0e0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #0a0f1f, #141a33);
+        color: #e0e6f0;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        overflow: auto;
         padding: 20px;
       }
       .container {
-        background: #0f0f0f;
-        padding: 40px 20px;
+        background: #12182b;
+        padding: 40px 25px;
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-        max-width: 600px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        max-width: 750px;
         width: 100%;
-        animation: fadeIn 1.5s ease-in-out;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
       }
+      /* FortiGate Logo */
       .logo {
+        height: 120px;
         margin-bottom: 20px;
-      }
-      .logo img {
-        width: 100px;
-        height: auto;
+        background: url(%%IMAGE:block_logo%%) no-repeat center center;
+        background-size: contain;
       }
       h1 {
-        font-size: 30px;
+        font-size: 28px;
         margin-bottom: 15px;
         color: #ff4d4d;
       }
-      p {
+      .description {
         font-size: 16px;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         line-height: 1.6;
-        text-align: center;
-        width: 100%;
+        color: #cbd3e6;
       }
       .contact-info {
         font-size: 14px;
-        color: #b3b3b3;
-      }
-      /* Table styles */
-      table {
-        width: 100%;
-        margin: 20px 0;
-        border-collapse: collapse;
-        color: #e0e0e0;
-        table-layout: fixed;
-      }
-      table, th, td {
-        border: 1px solid #444444;
-      }
-      th, td {
-        padding: 12px;
-        text-align: left;
-        word-wrap: break-word;
-      }
-      th {
-        background-color: #444444;
-        color: #ffffff;
-      }
-      td {
-        background-color: #2e2e2e;
-      }
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
+        color: #aab4d6;
+        margin-bottom: 25px;
       }
       .link {
-        color: #ff4d4d;
+        color: #6ea8ff;
         text-decoration: none;
         font-weight: bold;
       }
       .link:hover {
         text-decoration: underline;
-        color: #ff6666;
+        color: #9ec5ff;
       }
       .highlight {
-        color: #ff4d4d;
+        color: #6ea8ff;
         font-weight: bold;
       }
+      /* Table Styling */
+      table {
+        width: 100%;
+        margin: 20px 0;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      table, th, td {
+        border: 1px solid #2a3355;
+      }
+      th, td {
+        padding: 12px;
+        word-wrap: break-word;
+      }
+      th {
+        background-color: #1a2240;
+        text-align: left;
+        color: #e0e6f0;
+      }
+      td {
+        background-color: #161d35;
+        color: #cbd3e6;
+      }
+      /* Override button */
       .override-button {
         display: inline-block;
         background-color: #ff4d4d;
         color: #fff;
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 6px;
         text-decoration: none;
         font-weight: bold;
         margin-top: 20px;
@@ -114,72 +105,76 @@
       .override-button:hover {
         background-color: #ff6666;
       }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="logo">
-        <img src="https://i.ibb.co/cKHDzHZ6/7992089.png" alt="Access Denied Logo">
       </div>
       <h1>
-        Access Denied
+        Security Alert - Access Blocked
       </h1>
-      <p>
+      <div class="description">
         <b>
-          Thanks for being patient with us during this time. Right now, the company’s firewall is blocking access to the URL or file you're trying to get to or download. If you think this is an error, feel free to reach out to the administrator or just try again later.
+          The requested content has been blocked by the security policy.
+          A potential threat or restricted content has been detected.
+          If you believe this is an error, please contact the administrator.
         </b>
-      </p>
-      
-      <div class="contact-info">
-        <p>
-          For assistance, please reach out to 
-          <a href="mailto:support@domain.lk" class="link">
-            support@domain.lk
-          </a>
-          
-          or Call 
-          <span class="highlight">
-            0112xxxxxx
-          </span>
-        </p>
       </div>
-      <!-- Table displaying URL details -->
+      <div class="contact-info">
+        For assistance, contact
+        <a href="mailto:user@domain.lk" class="link">
+          user@domain.lk
+        </a>
+        or call 
+        <span class="highlight">
+          50176
+        </span>
+      </div>
       <table>
-        <tbody>
-          <tr>
-            <td>
-              URL
-            </td>
-            <td>
-              %%PROTOCOL%%://%%URL%%
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Quarantined File Name
-            </td>
-            <td>
-              %%QUARFILENAME%%
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Reference URL
-            </td>
-            <td>
-              %%VIRUS_REF_URL%%
-            </td>
-          </tr>
-        </tbody>
+        <tr>
+          <th>
+            URL
+          </th>
+          <td>
+            %%PROTOCOL%%://%%URL%%
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Quarantined File
+          </th>
+          <td>
+            %%QUARFILENAME%%
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Reference
+          </th>
+          <td>
+            %%VIRUS_REF_URL%%
+          </td>
+        </tr>
       </table>
-      <!-- Override message -->
-      <p>
+      <div>
         %%OVERRIDE%%
-      </p>
-      <!-- Button for override action -->
-      <a href="%%OVERRIDE_LINK%%" class="override-button">
-        Override Access
-      </a>
+      </div>
+      <div>
+        <a href="%%OVERRIDE_LINK%%" class="override-button">
+          Request Override
+        </a>
+      </div>
     </div>
   </body>
 </html>
